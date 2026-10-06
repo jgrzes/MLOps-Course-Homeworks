@@ -1,0 +1,32 @@
+[project]
+name = "mlops-homework1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "jgrzes", email = "kuba.grzes@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "clean-text>=0.7.1",
+    "fastapi>=0.142.2",
+    "joblib>=1.6.0",
+    "pre-commit>=4.6.2",
+    "scikit-learn>=1.9.1",
+    "sentence-transformers>=6.1.0",
+    "torch>=2.14.1",
+    "torchvision>=0.29.1",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+mlops-homework1 = "mlops_homework1:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
