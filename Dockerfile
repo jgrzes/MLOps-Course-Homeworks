@@ -1,6 +1,6 @@
 # Dockerfile
 
-FROM python:3.14-slim
+FROM ghcr.io/astral-sh/uv:python3.14-bookworm-slim
 
 # Set the working directory in the container
 WORKDIR /app

@@ -1,6 +1,7 @@
 import joblib
 import pytest
 from fastapi.testclient import TestClient
+from sentence_transformers import SentenceTransformer
 
 from app import app
 
@@ -8,17 +9,19 @@ client = TestClient(app)
 
 
 def test_model_loads():
-    model = joblib.load("model/classifier.joblib")
-    assert model is not None
+    transformer = SentenceTransformer("model/sentence_transformer.model")
+    classifier = joblib.load("model/classifier.joblib")
+
+    assert transformer is not None
+    assert classifier is not None
 
 
 @pytest.mark.parametrize(
     "text",
     [
-        "I love this product!",
+        "I love scikit-fingerprints!",
         "This is okay.",
         "I hate this.",
-        "I love scikit-fingerprints!",
     ],
 )
 def test_inferenece(text):
